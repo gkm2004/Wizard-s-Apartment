@@ -1,0 +1,127 @@
+body {
+    font-family: 'Times New Roman', cursive;
+    background-color: #e1d3ee;
+    color: #151414;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-header {
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    padding: 20px;
+    background-color: #93b291;
+    color:#091929;
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #7e9684;
+    color: black;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 5px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.back-button:hover {
+    background-color: #2d9f4b;
+}
+
+/* Music control positioning */
+#music-control {
+    position: absolute; /* Ensure it stays in the corner */
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333; 
+    transition: color 0.3s;
+}
+
+#music-control:hover {
+    color: #666;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 50px); /* Adjust based on header height */
+}
+
+.left-panel {
+    width: 75%;
+    background-color: rgba(213, 205, 205, 0.2); /* Light transparent background */
+}
+
+.right-panel {
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    border-left: 3px solid rgba(0, 0, 0, 0.3); /* Optional: Add a separator */
+}
+
+.blog-image {
+    height: 380px;
+    width:380px;
+    object-fit: cover; /* Ensures it scales well */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.create-blog-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #678869; /* Matching color theme */
+    color: white;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.create-blog-btn:hover {
+    background-color: #5dc569;
+}
+
+#myParagraph {
+    color: rgb(10, 10, 12);
+    font-size: 16px;
+    font-family: "Papyrus", "Lucida Blackletter", "Copperplate", fantasy;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+.write-area{
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(14, 12, 12, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#blog-title, #blog-content {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#blog-content
+{
+    background-color: antiquewhite;
+}
+#submit-blog {
+    background: rgb(82, 156, 114);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+
+}
