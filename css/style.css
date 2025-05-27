@@ -1,6 +1,6 @@
 /* Make the background light purple */
 body {
-    background-color: #93b291;
+    background-color: #c1e0ab;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
@@ -141,3 +141,4 @@ body {
         transform: translateY(-100px);
     }
 }
+

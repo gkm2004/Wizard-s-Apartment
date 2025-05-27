@@ -1,66 +1,110 @@
-document.getElementById('music-icon').addEventListener('click', function () {
-    let music = document.getElementById('background-music');
-    let icon = document.getElementById('music-icon');
+document.addEventListener('DOMContentLoaded', () => {
 
-    if (music.paused) {
+  // 🎵 Music toggle
+  const musicBtn = document.getElementById('music-icon');
+  const music = document.getElementById('background-music');
+  if (musicBtn && music) {
+    musicBtn.addEventListener('click', () => {
+      if (music.paused) {
         music.play();
-        icon.classList.remove('fa-volume-mute'); // Remove mute icon
-        icon.classList.add('fa-volume-up'); // Show volume up when playing
-    } else {
+        musicBtn.classList.remove('fa-volume-mute');
+        musicBtn.classList.add('fa-volume-up');
+      } else {
         music.pause();
-        icon.classList.remove('fa-volume-up'); // Remove volume up icon
-        icon.classList.add('fa-volume-mute'); // Show mute when paused
-    }
-});
-
-document.querySelectorAll('.hotspot').forEach(hotspot => {
-    hotspot.addEventListener('mouseover', function() {
-      const tooltip = this.querySelector('.tooltip-text');
-      tooltip.style.visibility = 'visible';
-      tooltip.style.opacity = '1';
+        musicBtn.classList.remove('fa-volume-up');
+        musicBtn.classList.add('fa-volume-mute');
+      }
     });
-    
-    hotspot.addEventListener('mouseout', function() {
-      const tooltip = this.querySelector('.tooltip-text');
-      tooltip.style.visibility = 'hidden';
-      tooltip.style.opacity = '0';
+  }
+
+  // 🐾 Cat interaction with hearts + purr
+  const cat = document.getElementById('cat');
+  if (cat) {
+    cat.addEventListener('click', () => {
+      const purrSound = new Audio('audio/Purr.mp3');
+      purrSound.volume = 0.5;
+      purrSound.play();
+
+      createHeart();
+
+      setTimeout(() => {
+        purrSound.pause();
+        purrSound.currentTime = 0;
+      }, 5000);
     });
-  });
-  
-  document.getElementById('radio').addEventListener('click', function () {
-    window.location.href = 'https://open.spotify.com/playlist/3C7VgeeS2uiaJns0MzJngo?si=464052e8c8c14641'; // Replace with your actual link
-});
+  }
 
-  document.getElementById('cat').addEventListener('click', function () {
-    let purrSound = new Audio('audio/Purr.mp3');
-    purrSound.volume = 0.5;
-    purrSound.play();
-
-    createHeart();
-
-    setTimeout(() => {
-        purrSound.pause(); // Pause the sound
-        purrSound.currentTime = 0; // Reset to the start
-    }, 5000); 
-});
-
-function createHeart() {
-    let heart = document.createElement('div');
+  function createHeart() {
+    const heart = document.createElement('div');
     heart.textContent = '❤️';
     heart.className = 'heart';
 
-    let cat = document.getElementById('cat');
-    let rect = cat.getBoundingClientRect();
-
+    const rect = cat.getBoundingClientRect();
     heart.style.left = `${rect.left + Math.random() * rect.width}px`;
     heart.style.top = `${rect.top + Math.random() * rect.height}px`;
 
     document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2000);
+  }
 
-    setTimeout(heart.remove.bind(heart), 2000); // Remove after 2s
-}
+  // 🎯 Tooltips on hover
+  document.querySelectorAll('.hotspot').forEach(hotspot => {
+    const tooltip = hotspot.querySelector('.tooltip-text');
+    if (tooltip) {
+      hotspot.addEventListener('mouseover', () => {
+        tooltip.style.visibility = 'visible';
+        tooltip.style.opacity = '1';
+      });
 
-document.getElementById('orb').addEventListener('click', function () {
-    window.location.href = 'blog.php';
+      hotspot.addEventListener('mouseout', () => {
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = '0';
+      });
+    }
+  });
+
+  // 🔗 Navigation buttons
+  const radio = document.getElementById('radio');
+  if (radio) {
+    radio.addEventListener('click', () => {
+      window.location.href = 'https://open.spotify.com/playlist/3C7VgeeS2uiaJns0MzJngo?si=464052e8c8c14641';
+    });
+  }
+
+  const orb = document.getElementById('orb');
+  if (orb) {
+    orb.addEventListener('click', () => {
+      window.location.href = 'blog.php';
+    });
+  }
+
+  const golu = document.getElementById('golu');
+  if (golu) {
+    golu.addEventListener('click', () => {
+      window.location.href = 'gallery.php';
+    });
+  }
+
+  // 🧙‍♀️ AJAX Tag Filtering
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const selectedTag = this.dataset.tag;
+
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+
+      fetch('./filter-gallery.php?tag=' + encodeURIComponent(selectedTag))
+        .then(response => response.text())
+        .then(html => {
+          const gallery = document.getElementById('gallery-area');
+          if (gallery) {
+            gallery.innerHTML = html;
+          }
+        })
+        .catch(error => console.error('AJAX error:', error));
+    });
+  });
+
 });
-
