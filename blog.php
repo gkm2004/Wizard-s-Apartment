@@ -1,13 +1,8 @@
 <?php
-// Connect to the database
-$host = 'localhost:3307'; 
-$username = 'root';
-$password = 'newpassword'; 
-$database = 'my_blog_db';
+require_once 'config.php';
 
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -29,7 +24,7 @@ $result = $conn->query($sql);
     <nav>
         <a href="gallery.php">gallery/</a>
         <a href="projects.html">projects/</a>
-        <a href="wizards-closet.html"> home</a>
+        <a href="index.html"> home</a>
     </nav>
 
     <section class="section">

@@ -32,7 +32,7 @@ $post = $result->fetch_assoc();
     <nav>
         <a href="gallery.php">gallery/</a>
         <a href="projects.html">projects/</a>
-        <a href="wizards-closet.html">home/</a>
+        <a href="index.html"> home/</a>
         <a href="blog.php">back</a>
     </nav>
 

@@ -24,8 +24,8 @@ $r = $conn->query("SELECT * FROM gallery ORDER BY uploaded_at DESC");
     <h1 id="heading">✨ My Gallery ✨</h1>
     </a>
     <nav>
-        <a href="wizards-closet.html">home/</a>
-        <a href="projects.html">projects/</a>
+    <a href="index.html"> home/</a>
+    <a href="projects.html">projects/</a>
         <a href="blog.php">blog</a>
     </nav>
 
