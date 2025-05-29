@@ -85,6 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const comp = document.getElementById('computer');
+  if (comp) {
+    comp.addEventListener('click', () => {
+      window.location.href = 'projects.html';
+    });
+  }
+
   // 🧙‍♀️ AJAX Tag Filtering
   document.querySelectorAll('.tag').forEach(tag => {
     tag.addEventListener('click', function (e) {
