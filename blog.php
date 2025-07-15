@@ -33,8 +33,8 @@ $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {
         echo '<div class="card">';
         echo '<a href="post.php?slug=' . htmlspecialchars($row['slug']) . '">';
-        echo htmlspecialchars($row['title']) . '</a>';
-        echo "<small>" . date('F j, Y', strtotime($row['published_at'])) . "</small>\n";
+        echo '<strong>' . htmlspecialchars($row['title']) . '</strong></a><br>';
+        echo '<small>' . date('F j, Y', strtotime($row['published_at'])) . '</small>';        
         echo '</div>';
     }
     ?>

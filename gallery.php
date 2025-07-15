@@ -49,14 +49,12 @@ foreach ($images as $img) {
         <a href="blog.php">blog</a>
     </nav>
 
-    <!-- ✅ Tag List -->
     <div class="tag-list">
         <?php foreach ($all_tags as $tag => $_): ?>
             <a href="gallery.php?tag=<?= urlencode($tag) ?>" class="tag<?= ($selected_tag === $tag ? ' active' : '') ?>">#<?= htmlspecialchars($tag) ?></a>
         <?php endforeach; ?>
     </div>
 
-    <!-- ✅ Filter Notice -->
     <?php if ($selected_tag): ?>
         <div class="filter-notice">
             Showing images tagged: <strong>#<?= htmlspecialchars($selected_tag) ?></strong>
@@ -64,7 +62,6 @@ foreach ($images as $img) {
         </div>
     <?php endif; ?>
 
-    <!-- ✅ Gallery -->
     <div class="gallery-container" id="gallery-area">
         <?php foreach ($filtered_images as $img): ?>
             <div class="gallery-card" data-tags="<?= htmlspecialchars($img['tags']) ?>">
