@@ -1,6 +1,6 @@
 /* Make the background light purple */
 body {
-    background-color: #c1e0ab;
+    background-color: lightgrey;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
@@ -15,7 +15,7 @@ body {
 #heading {
     font-size: 2.5em; /* Increased size for better visibility */
     
-    color:#091929; /* Dark purple for contrast */
+    color:white; /* Dark purple for contrast */
     margin-bottom: 20px; /* Adds space between heading and image */
 }
 
